@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    tools:context=".SplashActivity">
+
+    <!-- Gradient Background -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_gradient" />
+
+
+    <!-- Center Greeting Text -->
+
+
+    <!-- Card container sits directly above search button with NO gap -->
+
+    <TextView
+        android:id="@+id/tvTyping"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/cardContainer"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:lineSpacingExtra="4dp"
+        android:text="Hello World"
+        android:textColor="#F5111111"
+        android:textSize="45sp"
+        android:textStyle="bold" />
+
+    <FrameLayout
+        android:id="@+id/cardContainer"
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="100dp"
+        android:clipChildren="false"
+        android:clipToPadding="false">
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card1"
+            android:layout_width="100dp"
+            android:layout_height="130dp"
+            app:cardBackgroundColor="#F5F0EC"
+            app:cardCornerRadius="28dp"
+            app:cardElevation="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/pdf_page" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- card2 — ghost copy (enters from right) -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card2"
+            android:layout_width="100dp"
+            android:layout_height="130dp"
+            app:cardBackgroundColor="#F5F0EC"
+            app:cardCornerRadius="28dp"
+            app:cardElevation="14dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/pen_paper"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- card3 — left visible card (Convert) -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card3"
+            android:layout_width="100dp"
+            android:layout_height="130dp"
+            app:cardBackgroundColor="#F5F0EC"
+            app:cardCornerRadius="28dp"
+            app:cardElevation="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/doc_png" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- card4 — center visible card (Scan) -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card4"
+            android:layout_width="100dp"
+            android:layout_height="130dp"
+            app:cardBackgroundColor="#F5F0EC"
+            app:cardCornerRadius="28dp"
+            app:cardElevation="14dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/vault_png" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- card5 — right visible card (Edit) -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card5"
+            android:layout_width="100dp"
+            android:layout_height="130dp"
+            app:cardBackgroundColor="#F5F0EC"
+            app:cardCornerRadius="28dp"
+            app:cardElevation="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/pdf_page" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- card6 — ghost copy (enters from far right) -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card6"
+            android:layout_width="100dp"
+            android:layout_height="130dp"
+            app:cardBackgroundColor="#F5F0EC"
+            app:cardCornerRadius="28dp"
+            app:cardElevation="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/vault_png"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </FrameLayout>
+
+</RelativeLayout>
