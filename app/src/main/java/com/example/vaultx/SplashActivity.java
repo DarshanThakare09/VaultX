@@ -13,6 +13,9 @@ import android.animation.ObjectAnimator;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class SplashActivity extends AppCompatActivity {
 
     // ── Tuning ────────────────────────────────────────────────────────────────
@@ -92,12 +95,19 @@ public class SplashActivity extends AppCompatActivity {
         Handler  h    = new Handler();
         for (int i = 0; i <= text.length(); i++) {
             final int idx = i;
-            h.postDelayed(() -> tv.setText(text.substring(0, idx)), i *60L);
+            h.postDelayed(() -> tv.setText(text.substring(0, idx)), i *80L);
         }
 
         // ── Navigate after 3 s ────────────────────────────────────────────────
         new Handler().postDelayed(() -> {
-            startActivity(new Intent(SplashActivity.this, MainActivity.class));
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+            if (user != null) {
+                startActivity(new Intent(this, MainActivity.class));
+            } else {
+                startActivity(new Intent(this, LoginActivity.class));
+            }
+            finish();
             finish();
         }, 3300);
     }
