@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.Fragment;
 
 public class PinActivity extends AppCompatActivity {
 
@@ -17,12 +18,18 @@ public class PinActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pin);
 
         if (PinManager.getPin(this) == null) {
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.container, new SetPinFragment())
-                    .commit();
+            // First time → Set PIN
+            loadFragment(new SetPinFragment());
         } else {
-            // Later → Enter PIN screen
+            // PIN exists → Enter PIN
+            loadFragment(new EnterPinFragment()); // 🔥 IMPORTANT
         }
+    }
+
+    private void loadFragment(Fragment fragment) {
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.container, fragment)
+                .commit();
     }
 }

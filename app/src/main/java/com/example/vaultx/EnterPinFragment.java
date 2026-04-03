@@ -1,18 +1,14 @@
 package com.example.vaultx;
 
+import android.animation.ObjectAnimator;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.GridLayout;
-import android.widget.LinearLayout;
-import android.widget.Toast;
+import android.view.*;
+import android.widget.*;
 
 import androidx.fragment.app.Fragment;
 
-public class SetPinFragment extends Fragment {
+public class EnterPinFragment extends Fragment {
 
     private StringBuilder pin = new StringBuilder();
     private View[] dots = new View[4];
@@ -21,21 +17,17 @@ public class SetPinFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_set_pin, container, false);
+        View view = inflater.inflate(R.layout.fragment_enter_pin, container, false);
 
         LinearLayout dotLayout = view.findViewById(R.id.pinDots);
-        GridLayout grid = view.findViewById(R.id.keypadGrid);
 
         for (int i = 0; i < 4; i++) {
             dots[i] = dotLayout.getChildAt(i);
         }
 
-        setupKeypad(grid);
+        // Number buttons
+        GridLayout grid = view.findViewById(R.id.keypadGrid);
 
-        return view;
-    }
-
-    private void setupKeypad(GridLayout grid) {
         for (int i = 0; i < grid.getChildCount(); i++) {
             View child = grid.getChildAt(i);
 
@@ -49,6 +41,8 @@ public class SetPinFragment extends Fragment {
                 }
             }
         }
+
+        return view;
     }
 
     private void addDigit(String digit) {
@@ -57,13 +51,7 @@ public class SetPinFragment extends Fragment {
             updateDots();
 
             if (pin.length() == 4) {
-                // move to confirm screen
-                ConfirmPinFragment fragment = ConfirmPinFragment.newInstance(pin.toString());
-
-                requireActivity().getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.container, fragment)
-                        .commit();
+                checkPin();
             }
         }
     }
@@ -77,9 +65,34 @@ public class SetPinFragment extends Fragment {
 
     private void updateDots() {
         for (int i = 0; i < 4; i++) {
-            dots[i].setBackgroundResource(
-                    i < pin.length() ? R.drawable.dot_active : R.drawable.dot_inactive
-            );
+            if (i < pin.length()) {
+                dots[i].setBackgroundResource(R.drawable.dot_active);
+            } else {
+                dots[i].setBackgroundResource(R.drawable.dot_inactive);
+            }
+        }
+    }
+
+    private void checkPin() {
+        String savedPin = PinManager.getPin(getContext());
+
+        if (pin.toString().equals(savedPin)) {
+            startActivity(new Intent(getActivity(), MainActivity.class));
+            requireActivity().finish();
+        } else {
+            shakeAnimation();
+            pin.setLength(0);
+            updateDots();
+        }
+    }
+
+    private void shakeAnimation() {
+        View root = getView();
+        if (root != null) {
+            ObjectAnimator shake = ObjectAnimator.ofFloat(root, "translationX",
+                    0, 20, -20, 20, -20, 0);
+            shake.setDuration(400);
+            shake.start();
         }
     }
 }

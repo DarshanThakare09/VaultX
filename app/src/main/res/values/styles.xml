@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="PinDot">
+        <item name="android:layout_width">16dp</item>
+        <item name="android:layout_height">16dp</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:background">@drawable/dot_inactive</item>
+    </style>
+
+    <style name="PinKey">
+        <item name="android:layout_width">70dp</item>
+        <item name="android:layout_height">70dp</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="PinKeyEmpty">
+        <item name="android:layout_width">70dp</item>
+        <item name="android:layout_height">70dp</item>
+    </style>
+</resources>
