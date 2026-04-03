@@ -1,0 +1,29 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@drawable/bg_gradient">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Confirm PIN"
+        android:textSize="22sp"/>
+
+    <EditText
+        android:id="@+id/etConfirmPin"
+        android:inputType="numberPassword"
+        android:maxLength="4"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnConfirm"
+        android:text="Confirm"
+        android:layout_marginTop="20dp"/>
+</LinearLayout>

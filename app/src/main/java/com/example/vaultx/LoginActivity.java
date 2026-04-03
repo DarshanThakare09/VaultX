@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -29,7 +30,9 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login);
+
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -46,8 +49,14 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void signIn() {
-        Intent signInIntent = googleSignInClient.getSignInIntent();
-        startActivityForResult(signInIntent, RC_SIGN_IN);
+
+        // 🔥 Force account chooser
+        googleSignInClient.signOut().addOnCompleteListener(this, task -> {
+
+            Intent signInIntent = googleSignInClient.getSignInIntent();
+            startActivityForResult(signInIntent, RC_SIGN_IN);
+
+        });
     }
 
     @Override
@@ -82,7 +91,7 @@ public class LoginActivity extends AppCompatActivity {
                                 .apply();
 
                         // Go to PIN setup or main
-                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                        startActivity(new Intent(LoginActivity.this, PinActivity.class));
                         finish();
 
                     } else {
