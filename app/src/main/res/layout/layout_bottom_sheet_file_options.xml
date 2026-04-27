@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_gradient"
+    android:padding="24dp">
+
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:background="#40FFFFFF"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:id="@+id/tv_bs_file_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="File Options"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:layout_marginBottom="16dp"/>
+
+    <LinearLayout
+        android:id="@+id/btn_bs_open"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingVertical="12dp"
+        android:gravity="center_vertical"
+        android:background="?attr/selectableItemBackground">
+        <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_menu_view" app:tint="#64B5F6"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Open File" android:textColor="@android:color/white" android:layout_marginStart="16dp" android:textSize="16sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/btn_bs_lock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingVertical="12dp"
+        android:gravity="center_vertical"
+        android:background="?attr/selectableItemBackground">
+        <ImageView android:id="@+id/iv_bs_lock_icon" android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_lock_lock" app:tint="#FFB74D"/>
+        <TextView android:id="@+id/tv_bs_lock_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Lock File" android:textColor="@android:color/white" android:layout_marginStart="16dp" android:textSize="16sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/btn_bs_share"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingVertical="12dp"
+        android:gravity="center_vertical"
+        android:background="?attr/selectableItemBackground">
+        <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_menu_share" app:tint="#81C784"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Share" android:textColor="@android:color/white" android:layout_marginStart="16dp" android:textSize="16sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/btn_bs_delete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingVertical="12dp"
+        android:gravity="center_vertical"
+        android:background="?attr/selectableItemBackground">
+        <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_menu_delete" app:tint="#E57373"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Delete File" android:textColor="#E57373" android:layout_marginStart="16dp" android:textSize="16sp"/>
+    </LinearLayout>
+
+</LinearLayout>

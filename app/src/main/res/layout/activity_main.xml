@@ -1,18 +1,312 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity"
     android:background="@drawable/bg_gradient">
-        <Button
-            android:id="@+id/logoutbtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:text="Logout" />
 
-</LinearLayout>
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingBottom="88dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp">
+
+            <!-- ═══════════════════ HEADER ═══════════════════ -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="8dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_centerVertical="true">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="VaultX"
+                        android:textColor="#FFFFFF"
+                        android:textSize="30sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="-0.02"/>
+                    <TextView
+                        android:id="@+id/tv_greeting"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Hello, User 👋"
+                        android:textColor="#B3FFFFFF"
+                        android:textSize="14sp"/>
+                </LinearLayout>
+
+                <ImageButton
+                    android:id="@+id/btn_settings"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/bg_icon_circle"
+                    android:src="@android:drawable/ic_menu_manage"
+                    app:tint="#FFFFFF"/>
+            </RelativeLayout>
+
+            <!-- ═══════════════════ SEARCH BAR ═══════════════════ -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                app:cardCornerRadius="26dp"
+                app:cardBackgroundColor="#22FFFFFF"
+                app:cardElevation="0dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="28dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="16dp">
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@android:drawable/ic_menu_search"
+                        app:tint="#B3FFFFFF"/>
+                    <EditText
+                        android:id="@+id/et_search"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Search your vault…"
+                        android:textColorHint="#80FFFFFF"
+                        android:textColor="#FFFFFF"
+                        android:background="@null"
+                        android:singleLine="true"
+                        android:layout_marginStart="12dp"
+                        android:textSize="15sp"
+                        android:imeOptions="actionSearch"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- ═══════════════════ QUICK STATS ═══════════════════ -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Storage Overview"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp"/>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none"
+                android:layout_marginBottom="28dp">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!-- Documents stat -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp"
+                        app:cardCornerRadius="16dp"
+                        app:cardBackgroundColor="#2A2A3E"
+                        app:strokeWidth="1dp"
+                        app:strokeColor="#3564B5F6">
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp">
+                            <ImageView android:layout_width="28dp" android:layout_height="28dp" android:src="@android:drawable/ic_menu_edit" app:tint="#64B5F6"/>
+                            <TextView android:id="@+id/tv_stat_docs" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:textColor="#FFFFFF" android:textSize="22sp" android:textStyle="bold" android:layout_marginTop="6dp"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Documents" android:textColor="#B3FFFFFF" android:textSize="12sp"/>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Photos stat -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp"
+                        app:cardCornerRadius="16dp"
+                        app:cardBackgroundColor="#2A3E2A"
+                        app:strokeWidth="1dp"
+                        app:strokeColor="#3581C784">
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp">
+                            <ImageView android:layout_width="28dp" android:layout_height="28dp" android:src="@android:drawable/ic_menu_gallery" app:tint="#81C784"/>
+                            <TextView android:id="@+id/tv_stat_photos" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:textColor="#FFFFFF" android:textSize="22sp" android:textStyle="bold" android:layout_marginTop="6dp"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Photos" android:textColor="#B3FFFFFF" android:textSize="12sp"/>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Passwords stat -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp"
+                        app:cardCornerRadius="16dp"
+                        app:cardBackgroundColor="#3E2A2A"
+                        app:strokeWidth="1dp"
+                        app:strokeColor="#35E57373">
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp">
+                            <ImageView android:layout_width="28dp" android:layout_height="28dp" android:src="@android:drawable/ic_lock_lock" app:tint="#E57373"/>
+                            <TextView android:id="@+id/tv_stat_passwords" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:textColor="#FFFFFF" android:textSize="22sp" android:textStyle="bold" android:layout_marginTop="6dp"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Passwords" android:textColor="#B3FFFFFF" android:textSize="12sp"/>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <!-- ═══════════════════ VAULT CATEGORIES ═══════════════════ -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vault Categories"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp"/>
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:rowCount="2"
+                android:layout_marginBottom="28dp">
+
+                <!-- Secure Notes -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_notes"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:layout_margin="5dp"
+                    app:cardCornerRadius="18dp"
+                    app:cardBackgroundColor="#2A2A3E"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="#3564B5F6">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="18dp">
+                        <ImageView android:layout_width="36dp" android:layout_height="36dp" android:src="@android:drawable/ic_menu_agenda" app:tint="#FFB74D"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Secure Notes" android:textColor="#FFFFFF" android:textSize="15sp" android:textStyle="bold" android:layout_marginTop="10dp"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Private notes &amp; memos" android:textColor="#80FFFFFF" android:textSize="11sp" android:layout_marginTop="2dp"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Photos -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_photos"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:layout_margin="5dp"
+                    app:cardCornerRadius="18dp"
+                    app:cardBackgroundColor="#2A3E2A"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="#3581C784">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="18dp">
+                        <ImageView android:layout_width="36dp" android:layout_height="36dp" android:src="@android:drawable/ic_menu_gallery" app:tint="#81C784"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Private Photos" android:textColor="#FFFFFF" android:textSize="15sp" android:textStyle="bold" android:layout_marginTop="10dp"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Hidden from gallery" android:textColor="#80FFFFFF" android:textSize="11sp" android:layout_marginTop="2dp"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Documents -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_documents"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:layout_margin="5dp"
+                    app:cardCornerRadius="18dp"
+                    app:cardBackgroundColor="#2A2A3E"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="#35FFB74D">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="18dp">
+                        <ImageView android:layout_width="36dp" android:layout_height="36dp" android:src="@android:drawable/ic_menu_edit" app:tint="#64B5F6"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Files &amp; Docs" android:textColor="#FFFFFF" android:textSize="15sp" android:textStyle="bold" android:layout_marginTop="10dp"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="PDFs, TXT, DOC" android:textColor="#80FFFFFF" android:textSize="11sp" android:layout_marginTop="2dp"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Passwords -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_passwords"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:layout_margin="5dp"
+                    app:cardCornerRadius="18dp"
+                    app:cardBackgroundColor="#3E2A2A"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="#35E57373">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="18dp">
+                        <ImageView android:layout_width="36dp" android:layout_height="36dp" android:src="@android:drawable/ic_lock_lock" app:tint="#E57373"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Passwords" android:textColor="#FFFFFF" android:textSize="15sp" android:textStyle="bold" android:layout_marginTop="10dp"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Logins &amp; credentials" android:textColor="#80FFFFFF" android:textSize="11sp" android:layout_marginTop="2dp"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+            </GridLayout>
+
+            <!-- ═══════════════════ RECENT FILES ═══════════════════ -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="12dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Recent Files"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_recent_files"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"/>
+
+            <TextView
+                android:id="@+id/tv_empty_recent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🔒 Your vault is empty.\nTap + to add your first file."
+                android:textColor="#60FFFFFF"
+                android:textAlignment="center"
+                android:visibility="visible"
+                android:lineSpacingMultiplier="1.5"
+                android:padding="32dp"/>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- FAB -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_main_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="28dp"
+        android:src="@android:drawable/ic_input_add"
+        app:tint="#1A1A2E"
+        app:backgroundTint="#FFFFFF"
+        app:elevation="12dp"
+        app:fabSize="normal"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

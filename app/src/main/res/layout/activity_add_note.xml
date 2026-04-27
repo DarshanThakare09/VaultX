@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient"
+    android:id="@+id/main">
+
+    <TextView
+        android:id="@+id/tv_add_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Note"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:layout_marginEnd="16dp"
+        app:backgroundTint="#FFB74D"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_add_title"
+        app:layout_constraintBottom_toBottomOf="@id/tv_add_title"/>
+        
+    <LinearLayout
+        android:id="@+id/layout_colors"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_add_title">
+        
+        <View android:id="@+id/color_1" android:layout_width="32dp" android:layout_height="32dp" android:background="#2A2A35" android:layout_margin="8dp"/>
+        <View android:id="@+id/color_2" android:layout_width="32dp" android:layout_height="32dp" android:background="#424242" android:layout_margin="8dp"/>
+        <View android:id="@+id/color_3" android:layout_width="32dp" android:layout_height="32dp" android:background="#1565C0" android:layout_margin="8dp"/>
+        <View android:id="@+id/color_4" android:layout_width="32dp" android:layout_height="32dp" android:background="#2E7D32" android:layout_margin="8dp"/>
+        <View android:id="@+id/color_5" android:layout_width="32dp" android:layout_height="32dp" android:background="#C62828" android:layout_margin="8dp"/>
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/et_note_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Note Title"
+        android:textColorHint="#80FFFFFF"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:padding="16dp"
+        android:layout_margin="16dp"
+        android:background="#1AFFFFFF"
+        android:inputType="textCapSentences"
+        app:layout_constraintTop_toBottomOf="@id/layout_colors" />
+
+    <EditText
+        android:id="@+id/et_note_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:hint="Note Content..."
+        android:textColorHint="#80FFFFFF"
+        android:textColor="@android:color/white"
+        android:gravity="top|start"
+        android:padding="16dp"
+        android:layout_margin="16dp"
+        android:background="#1AFFFFFF"
+        android:inputType="textMultiLine"
+        app:layout_constraintTop_toBottomOf="@id/et_note_title"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
